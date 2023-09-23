@@ -6,7 +6,7 @@ class ConnectionManager{
         $servername = 'lumi-db.mysql.database.azure.com';
         $username = 'lumiadmin';
         $password = 'root01@dashboard';
-        $dbname = 'lumi-db';
+        $dbname = 'leaderboard';
         $port = 3306;
         
         // Create connection

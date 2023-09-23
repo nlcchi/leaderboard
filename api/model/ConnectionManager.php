@@ -3,11 +3,11 @@
 class ConnectionManager{
 
     public function getConnection() {
-        $servername = 'localhost';
-        $username = 'root';
-        $password = 'root';
+        $servername = 'lumi-db.mysql.database.azure.com';
+        $username = 'lumiadmin';
+        $password = 'root01@bashboard';
         $dbname = 'leaderboard';
-        $port = 8889;
+        $port = 3306;
         
         // Create connection
         $conn = new PDO("mysql:host=$servername;dbname=$dbname;port=$port", $username, $password);     

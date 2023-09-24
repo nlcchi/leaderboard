@@ -31,7 +31,7 @@ const app = Vue.createApp({
     },
     methods: {
         async addPoints() {
-          // Input validation
+          // Input validation 1
           if (this.nameInput !== "") {
             try {
               // Send a POST request to add points to the person in the database

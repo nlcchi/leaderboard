@@ -1,9 +1,10 @@
 <?php
-	class PersonDAO{
+	require_once "common.php";
+    class PersonDAO{
 		
 		#Return all persons 
 		function getAll(){
-			$connMgr = new ConnectionManager();          
+            $connMgr = new ConnectionManager();          
 			$connMgr = $connMgr->getConnection(); 
 
             $sql = "SELECT * FROM person ORDER BY points DESC";

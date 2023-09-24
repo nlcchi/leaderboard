@@ -3,11 +3,23 @@
 class ConnectionManager{
 
     public function getConnection() {
-        $con = mysqli_init();
-        mysqli_ssl_set($con,NULL,NULL, "DigiCertGlobalRootCA.crt.pem", NULL, NULL);
-        mysqli_real_connect($conn, "lumi-db.mysql.database.azure.com", "lumiadmin", "root01@dashboard", "leaderboard", 3306, MYSQLI_CLIENT_SSL);
-
-        // Return connection object
+        $servername = 'lumi-db.mysql.database.azure.com';
+        $username = 'lumiadmin';
+        $password = 'root01@dashboard';
+        $dbname = 'leaderboard';
+        $port = 3306;
+        
+        // Create connection
+        $conn = new PDO(
+                    "mysql:host=$servername;dbname=$dbname;port=$port"
+                    , $username
+                    , $password
+                    ,array(
+                        PDO::MYSQL_ATTR_SSL_CA => '../DigiCertGlobalRootCA.crt.pem',
+                        PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => false,
+                        )
+                    );     
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // if fail, exception will be thrown
         return $conn;
     }
 }
